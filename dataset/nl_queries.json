@@ -1,0 +1,34 @@
+﻿[
+  {
+"    ""query"": ""Total sales in India for March"","
+"    ""expected_logic"": ""SUM(revenue) WHERE country='India' AND month='2024-03'"""
+"  },"
+  {
+"    ""query"": ""Top 2 cities by profit"","
+"    ""expected_logic"": ""GROUP BY city ORDER BY SUM(profit) DESC LIMIT 2"""
+"  },"
+  {
+"    ""query"": ""Average order value by region"","
+"    ""expected_logic"": ""SUM(revenue)/COUNT(order_id) GROUP BY region"""
+"  },"
+  {
+"    ""query"": ""Which region missed its target in Feb?"","
+"    ""expected_logic"": ""JOIN targets, compare SUM(revenue) < target_revenue WHERE month='2024-02'"""
+"  },"
+  {
+"    ""query"": ""Sales contribution % by category"","
+"    ""expected_logic"": ""SUM(revenue)/TOTAL SUM(revenue) GROUP BY product_category"""
+"  },"
+  {
+"    ""query"": ""Top product in each region"","
+"    ""expected_logic"": ""WINDOW FUNCTION RANK() PARTITION BY region ORDER BY SUM(revenue)"""
+"  },"
+  {
+"    ""query"": ""YoY growth in revenue"","
+"    ""expected_logic"": ""((current_year - previous_year)/previous_year)"""
+"  },"
+  {
+"    ""query"": ""Revenue of top 3 customers per region"","
+"    ""expected_logic"": ""NESTED: GROUP BY customer → rank → filter top 3 → aggregate by region"""
+  }
+]
