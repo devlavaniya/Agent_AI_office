@@ -17,7 +17,7 @@ from pydantic import BaseModel, Field, ValidationError
 
 
 APP_TITLE = "Intelligent Analytics Query Engine"
-DEFAULT_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
+DEFAULT_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
 DATASET_DIR = Path("dataset")
 LOCAL_FEEDBACK_PATH = Path("feedback_log.csv")
 DISPLAY_ROW_LIMIT = 500
